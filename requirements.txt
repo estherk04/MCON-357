@@ -1,0 +1,8 @@
+# MCON 357 - Hello World Project Requirements
+# No external dependencies required for this basic hello world project
+
+# Future dependencies can be added here as the project grows
+# Example:
+# requests>=2.25.1
+# numpy>=1.21.0
+

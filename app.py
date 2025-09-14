@@ -4,13 +4,18 @@ MCON 357 - Flask Web Application
 A simple Flask web app that extends the hello world concept.
 """
 
-from flask import Flask, render_template_string
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
+def index():
+    """Main route that displays the interactive index page."""
+    return render_template('index.html')
+
+@app.route('/hello')
 def hello_world():
-    """Main route that displays hello world message."""
+    """Simple hello world route."""
     return '''
     <html>
         <head>
@@ -32,6 +37,8 @@ def hello_world():
                     max-width: 600px;
                     margin: 0 auto;
                 }
+                a { color: #007bff; text-decoration: none; }
+                a:hover { text-decoration: underline; }
             </style>
         </head>
         <body>
@@ -40,6 +47,7 @@ def hello_world():
                 <p>Welcome to MCON 357!</p>
                 <p>This is a Flask web application.</p>
                 <p>Your Python project is now running on the web! 🚀</p>
+                <p><a href="/">← Back to Interactive Page</a></p>
             </div>
         </body>
     </html>
@@ -59,3 +67,4 @@ if __name__ == '__main__':
     print("Starting MCON 357 Flask application...")
     print("Visit http://localhost:5000 to see your app!")
     app.run(debug=True, host='0.0.0.0', port=5000)
+
